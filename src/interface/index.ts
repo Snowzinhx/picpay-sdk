@@ -1,2 +1,2 @@
 export * from './cancel';
-export * from './constructor.interface';
+export * from './constructor-interface';
