@@ -2,7 +2,7 @@
   "name": "@snowzinhx/picpay",
   "version": "1.0.0",
   "description": "Pacote feito para auxiliar na hora da implementação do gateway do PicPay para pagamentos.",
-  "main": "dist/index.js",
+  "main": "src/index.ts",
   "scripts": {
     "dev": "tsc -w",
     "test": "jest"
