@@ -4,7 +4,8 @@
   "description": "Pacote feito para auxiliar na hora da implementação do gateway do PicPay para pagamentos.",
   "main": "dist/index.js",
   "scripts": {
-    "dev": "tsc -w"
+    "dev": "tsc -w",
+    "test": "jest"
   },
   "repository": {
     "type": "git",

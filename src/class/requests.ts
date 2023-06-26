@@ -10,7 +10,7 @@ import {
   ErrorsResponse,
 } from '../interface/response';
 
-export default class Requests {
+export default class Picpay {
   private PAYURL = 'https://appws.picpay.com/ecommerce/public/payments';
   constructor(private picpayToken: string) {}
   request(params: IPaymentRequest): Promise<IPaymentResponse | ErrorsResponse> {
