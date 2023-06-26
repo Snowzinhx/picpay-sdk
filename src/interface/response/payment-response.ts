@@ -1,4 +1,4 @@
-export interface PaymentResponse {
+export interface IPaymentResponse {
   referenceId: string;
   paymentUrl: string;
   expiresAt: string;

@@ -10,6 +10,7 @@ interface IBuyer {
 export interface IPaymentRequest extends IBuyer {
   referenceId: number;
   callbackUrl: string;
+  returnUrl?: string;
   value: number;
-  expiresAt: Date;
+  expiresAt: string;
 }
