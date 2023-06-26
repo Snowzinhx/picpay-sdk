@@ -1,0 +1,35 @@
+{
+  "name": "@snowzinhx/picpay",
+  "version": "0.0.2",
+  "description": "Pacote feito para auxiliar na hora da implementação do gateway do PicPay para pagamentos.",
+  "main": "dist/",
+  "prepublish": "tsc",
+  "scripts": {
+    "dev": "tsc -w",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Snowzinhx/picpay-sdk.git"
+  },
+  "keywords": [
+    "picpay",
+    "gateway",
+    "brasil",
+    "pagamento",
+    "qrcode"
+  ],
+  "author": "Snowzinhx",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Snowzinhx/picpay-sdk/issues"
+  },
+  "homepage": "https://github.com/Snowzinhx/picpay-sdk#readme",
+  "dependencies": {
+    "@types/node": "^20.3.1"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.3"
+  }
+}
