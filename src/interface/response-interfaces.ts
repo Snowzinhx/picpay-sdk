@@ -1,17 +1,8 @@
-import { ICancelRequest } from './request-interfaces';
 export interface ICancelResponse {
   referenceId: string;
   cancellationId: string;
 }
-interface ErrorsArray {
-  field: string;
-  message: string;
-}
 
-export interface ErrorsResponse {
-  message: string;
-  errors?: Array<ErrorsArray>;
-}
 export interface IPaymentResponse {
   referenceId: string;
   paymentUrl: string;
@@ -21,7 +12,12 @@ export interface IPaymentResponse {
     base64: string;
   };
 }
-
-export interface IStatusResponse extends ICancelRequest {
-  stauts: string;
+export interface IStatusResponse {
+  referenceId: string;
+  status: string;
+  summary: {
+    paid: number;
+    authorized: number;
+    refunded: number;
+  };
 }

@@ -1,19 +1,14 @@
-import {
-  IPaymentRequest,
-  IStatusRequest,
-  ICancelRequest,
-} from './interface/request-interfaces';
+import { IPaymentRequest } from './interface/request-interfaces';
 import {
   IPaymentResponse,
   IStatusResponse,
   ICancelResponse,
-  ErrorsResponse,
 } from './interface/response-interfaces';
 
 export class Picpay {
   private PAYURL = 'https://appws.picpay.com/ecommerce/public/payments';
   constructor(private picpayToken: string) {}
-  request(params: IPaymentRequest): Promise<IPaymentResponse | ErrorsResponse> {
+  request(params: IPaymentRequest): Promise<IPaymentResponse> {
     return new Promise((resolve, reject) => {
       fetch(this.PAYURL, {
         headers: {
@@ -37,14 +32,14 @@ export class Picpay {
         }),
       })
         .then((res) => res.json())
-        .then((data) => resolve(data as IPaymentResponse))
-        .catch((err) => reject(err as ErrorsResponse));
+        .then((data) => resolve(data))
+        .catch((err) => reject(err));
     });
   }
-  status(params: IStatusRequest): Promise<IStatusResponse | ErrorsResponse> {
+  status(referenceId: string): Promise<IStatusResponse> {
     return new Promise((resolve, reject) => {
       fetch(
-        `https://appws.picpay.com/ecommerce/public/payments/${params.referenceId}/cancellations`,
+        `https://appws.picpay.com/ecommerce/public/payments/${referenceId}/status`,
         {
           headers: {
             'Content-Type': 'application/json',
@@ -54,14 +49,14 @@ export class Picpay {
         }
       )
         .then((res) => res.json())
-        .then((data) => resolve(data as IStatusResponse))
-        .catch((err) => reject(err as ErrorsResponse));
+        .then((data) => resolve(data))
+        .catch((err) => reject(err));
     });
   }
-  cancel(params: ICancelRequest): Promise<ICancelResponse | ErrorsResponse> {
+  cancel(referenceId: string): Promise<ICancelResponse> {
     return new Promise((resolve, reject) => {
       fetch(
-        `https://appws.picpay.com/ecommerce/public/payments/${params.referenceId}/cancellations`,
+        `https://appws.picpay.com/ecommerce/public/payments/${referenceId}/cancellations`,
         {
           headers: {
             'Content-Type': 'application/json',
@@ -69,13 +64,13 @@ export class Picpay {
           },
           method: 'post',
           body: JSON.stringify({
-            authorizationId: params.authorizationId,
+            authorizationId: '5ffc8f61404bae05532d82da',
           }),
         }
       )
         .then((res) => res.json())
-        .then((data) => resolve(data as ICancelResponse))
-        .catch((err) => reject(err as ErrorsResponse));
+        .then((data) => resolve(data))
+        .catch((err) => reject(err));
     });
   }
 }
