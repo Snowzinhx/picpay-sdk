@@ -36,8 +36,8 @@ export default class Requests {
           },
         }),
       })
-        .then((res) => resolve(res.json()))
-        .then((data) => data as IPaymentResponse | unknown)
+        .then((res) => res.json())
+        .then((data) => resolve(data as IPaymentResponse))
         .catch((err) => reject(err as ErrorsResponse));
     });
   }
@@ -52,7 +52,10 @@ export default class Requests {
           },
           method: 'get',
         }
-      );
+      )
+        .then((res) => res.json())
+        .then((data) => resolve(data as IStatusResponse))
+        .catch((err) => reject(err as ErrorsResponse));
     });
   }
   cancel(params: ICancelRequest): Promise<ICancelResponse | ErrorsResponse> {
@@ -69,7 +72,10 @@ export default class Requests {
             authorizationId: params.authorizationId,
           }),
         }
-      );
+      )
+        .then((res) => res.json())
+        .then((data) => resolve(data as ICancelResponse))
+        .catch((err) => reject(err as ErrorsResponse));
     });
   }
 }
