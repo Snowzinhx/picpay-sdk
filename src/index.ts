@@ -1,2 +1,2 @@
 export * from './interface';
-export * from './class/requests';
+export * from './class';
