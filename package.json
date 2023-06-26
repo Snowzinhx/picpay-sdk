@@ -1,6 +1,6 @@
 {
   "name": "@snowzinhx/picpay-sdk",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Pacote feito para auxiliar na hora da implementação do gateway do PicPay para pagamentos.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
