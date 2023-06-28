@@ -105,7 +105,7 @@ Output:
 
 The project is under development, anything can be calling me on the link or Discord below:
 
-[Discord](https://discord.gg/UNZ5jMQdTR)
+[Discord](https://discord.gg/UNZ5jMQdTR)&nbsp;
 My Discord: snowzinhx
 
 ## Reference
