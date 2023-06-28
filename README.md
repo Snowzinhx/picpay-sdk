@@ -100,9 +100,12 @@ Output:
         cancellationId: '6499c40e...38cdcb'
     }
 ```
+
 ## Support
 
-[Discord](https://discord.gg/UNZ5jMQdTR) 
+The project is under development, anything can be calling me on the link or Discord below:
+
+[Discord](https://discord.gg/UNZ5jMQdTR)
 My Discord: snowzinhx
 
 ## Reference
