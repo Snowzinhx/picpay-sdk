@@ -46,33 +46,57 @@ export class Picpay {
       throw error;
     }
   }
-  async status(referenceId: string): Promise<IStatusResponse> {
-    const res = await fetch(
-      `https://appws.picpay.com/ecommerce/public/payments/${referenceId}/status`,
-      {
-        headers: {
-          'Content-Type': 'application/json',
-          'x-picpay-token': this.picpayToken,
-        },
-        method: 'get',
+  async status(referenceId: string): Promise<IStatusResponse | undefined> {
+    try {
+      if (!referenceId || typeof referenceId !== 'string')
+        throw new Error(
+          'The "referenceId" parameter must be provided and be of type string'
+        );
+      try {
+        const res = await fetch(
+          `https://appws.picpay.com/ecommerce/public/payments/${referenceId}/status`,
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              'x-picpay-token': this.picpayToken,
+            },
+            method: 'get',
+          }
+        );
+        return res.json();
+      } catch (error) {
+        throw error;
       }
-    );
-    return res.json();
+    } catch (error) {
+      throw error;
+    }
   }
   async cancel(referenceId: string): Promise<ICancelResponse> {
-    const res = await fetch(
-      `https://appws.picpay.com/ecommerce/public/payments/${referenceId}/cancellations`,
-      {
-        headers: {
-          'Content-Type': 'application/json',
-          'x-picpay-token': this.picpayToken,
-        },
-        method: 'post',
-        body: JSON.stringify({
-          authorizationId: '5ffc8f61404bae05532d82da',
-        }),
+    try {
+      if (!referenceId || typeof referenceId !== 'string')
+        throw new Error(
+          'The "referenceId" parameter must be provided and be of type string'
+        );
+      try {
+        const res = await fetch(
+          `https://appws.picpay.com/ecommerce/public/payments/${referenceId}/cancellations`,
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              'x-picpay-token': this.picpayToken,
+            },
+            method: 'post',
+            body: JSON.stringify({
+              authorizationId: '5ffc8f61404bae05532d82da',
+            }),
+          }
+        );
+        return res.json();
+      } catch (error) {
+        throw error;
       }
-    );
-    return res.json();
+    } catch (error) {
+      throw error;
+    }
   }
 }

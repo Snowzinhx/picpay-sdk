@@ -4,6 +4,14 @@
 
 Created to help when generating payments through Picpay for your application.
 
+## Support
+
+The project is under development, anything can be calling me on the link or Discord below:
+
+My Discord: snowzinhx
+
+My server: [Discord](https://discord.gg/UNZ5jMQdTR)
+
 ## Installation
 
 ```bash
@@ -123,17 +131,9 @@ Output:
 
 ```
 
-## Support
-
-The project is under development, anything can be calling me on the link or Discord below:
-
-My Discord: snowzinhx
-
-My server: [Discord](https://discord.gg/UNZ5jMQdTR)
-
 ## Reference
 
-This application was developed following the API documentation on the Picpay website.
+This application was developed following the API documentation on the Picpay website. **There you will have more detailed and complete information about the use of the API, so always consult.**
 
 - [Picpay - API Reference](https://studio.picpay.com/produtos/e-commerce/checkout/resources/api-reference)
 
@@ -144,3 +144,5 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+- [License MIT](https://lbesson.mit-license.org/)

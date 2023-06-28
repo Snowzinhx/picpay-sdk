@@ -5,8 +5,8 @@ export interface IPaymentRequest {
   value: number;
   expiresAt: string;
   buyer: {
-    firstName: string;
-    lastName: string;
+    firstName?: string;
+    lastName?: string;
     document: string;
     email?: string;
     phone?: string;
