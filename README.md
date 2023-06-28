@@ -18,7 +18,7 @@ Created to help when generating payments through Picpay for your application.
   yarn add @snowzinhx/picpay-sdk
 ```
 
-# Demonstration
+## Demonstration
 
 #### Generating a new payment intention:
 
@@ -54,7 +54,7 @@ Output:
   paymentUrl: 'https://app.picpay.com/checkout/NjQ5OWMxMzg...4MjZmMzBj',
   qrcode: {
     content: '00020101021226860014COM.PICPAY.P2B0164https://app.picpay.com/checkout/NjQ5OWMxMzgwYjY4NzkwOGQ4MjZmMzBj...6f30c6304C4C4',
-    base64: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAGQCAIAAAAP3aGbAAAACXBIWXMAAA7EAAAOxAGVKw4bAAALFUlEQVR4nO3dUW5bOwxF0bTo/IccvAFUAVTwkdRJ1vosUl/HdjYuIFr69fn5...'
+    base64: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAGQC...WXMAAA74O1fZEAZDi957Kp13GrLnQMBvE1+/v79+wOg4J/TbwDgLcECMgQLyBAs...wT6QAAAABJRU5ErkJggg=='
   },
   expiresAt: '2023-06-30T16:00:00-03:00'
 }
@@ -101,16 +101,41 @@ Output:
     }
 ```
 
+## Interfaces
+
+#### Payment request
+
+```
+    interface IPaymentRequest {
+        referenceId: number; // Unique identifier for your order.
+        callbackUrl: string; // Url to which PicPay will return the payment status.
+        returnUrl?: string; // Url to which the customer will be redirected after payment.
+        value: number; // Payment amount in reais.
+        expiresAt: string; // When the payment order will expire. ISO 8601 format.
+        buyer: {
+            firstName?: string; // Buyer's first name.
+            lastName?: string; // Buyer's last name.
+            document: string; // Buyer's CPF
+            email?: string; // Buyer's email
+            phone?: string; // buyer's phone number
+        };
+    }
+
+```
+
 ## Support
 
 The project is under development, anything can be calling me on the link or Discord below:
 
 My Discord: snowzinhx
+
 My server: [Discord](https://discord.gg/UNZ5jMQdTR)
 
 ## Reference
 
-- [PIcpay - API Reference](https://studio.picpay.com/produtos/e-commerce/checkout/resources/api-reference)
+This application was developed following the API documentation on the Picpay website.
+
+- [Picpay - API Reference](https://studio.picpay.com/produtos/e-commerce/checkout/resources/api-reference)
 
 ## License MIT
 

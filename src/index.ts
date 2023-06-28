@@ -4,39 +4,47 @@ import {
   IStatusResponse,
   ICancelResponse,
 } from './interface/response-interfaces';
-
-import requestValidation from './validations/request-validation';
+import requestValidation from './validation/request-validation';
 
 export class Picpay {
   private PAYURL = 'https://appws.picpay.com/ecommerce/public/payments';
   constructor(private picpayToken: string) {}
-  async request(params: IPaymentRequest): Promise<IPaymentResponse> {
-    const validation = await requestValidation(params);
-    if (!validation) {
-      throw new Error('Check the sent parameters.');
+  async request(
+    params: IPaymentRequest
+  ): Promise<IPaymentResponse | undefined> {
+    try {
+      const validation = await requestValidation(params);
+      if (validation === true) {
+        try {
+          const res = await fetch(this.PAYURL, {
+            headers: {
+              'Content-Type': 'application/json',
+              'x-picpay-token': this.picpayToken,
+            },
+            method: 'post',
+            body: JSON.stringify({
+              referenceId: params.referenceId,
+              callbackUrl: params.callbackUrl,
+              value: params.value,
+              returnUrl: params.returnUrl,
+              expiresAt: params.expiresAt,
+              buyer: {
+                firstName: params.buyer.firstName,
+                lastName: params.buyer.lastName,
+                document: params.buyer.document,
+                email: params.buyer.email,
+                phone: params.buyer.phone,
+              },
+            }),
+          });
+          return await res.json();
+        } catch (error) {
+          throw error;
+        }
+      }
+    } catch (error) {
+      throw error;
     }
-    const res = await fetch(this.PAYURL, {
-      headers: {
-        'Content-Type': 'application/json',
-        'x-picpay-token': this.picpayToken,
-      },
-      method: 'post',
-      body: JSON.stringify({
-        referenceId: params.referenceId,
-        callbackUrl: params.callbackUrl,
-        returnUrl: params.returnUrl,
-        value: params.value,
-        expiresAt: params.expiresAt,
-        buyer: {
-          firstName: params.buyer.firstName,
-          lastName: params.buyer.lastName,
-          document: params.buyer.document,
-          email: params.buyer.email,
-          phone: params.buyer.phone,
-        },
-      }),
-    });
-    return res.json();
   }
   async status(referenceId: string): Promise<IStatusResponse> {
     const res = await fetch(
