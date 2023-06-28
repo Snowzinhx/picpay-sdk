@@ -5,10 +5,16 @@ import {
   ICancelResponse,
 } from './interface/response-interfaces';
 
+import requestValidation from './validations/request-validation';
+
 export class Picpay {
   private PAYURL = 'https://appws.picpay.com/ecommerce/public/payments';
   constructor(private picpayToken: string) {}
   async request(params: IPaymentRequest): Promise<IPaymentResponse> {
+    const validation = await requestValidation(params);
+    if (!validation) {
+      throw new Error('Check the sent parameters.');
+    }
     const res = await fetch(this.PAYURL, {
       headers: {
         'Content-Type': 'application/json',
