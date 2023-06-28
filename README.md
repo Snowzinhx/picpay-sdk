@@ -101,6 +101,6 @@ Output:
     }
 ```
 
-## Referência
+## Reference
 
 - [PIcpay - API Reference](https://studio.picpay.com/produtos/e-commerce/checkout/resources/api-reference)
