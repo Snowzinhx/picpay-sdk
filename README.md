@@ -37,6 +37,7 @@ My server: [Discord](https://discord.gg/UNZ5jMQdTR)
     const newPayment = {
     referenceId: YOUR_REFERENCE_ID,
     callbackUrl: 'http://www.yourstore.com.br/callback',
+    returnUrl: 'http://www.yourstore.com.br/order/YOUR_REFERENCE_ID'
     value: 20.23,
     expiresAt: '2023-06-30T16:00:00-03:00',
     buyer: {
